@@ -1,6 +1,8 @@
 pipeline {
   agent any
-
+  options {//storage cleaner
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -25,7 +27,13 @@ pipeline {
         bat 'cd hello-world && npm run build'
       }
     }
-
+    stage('Scan') {
+      steps {
+        withSonarQubeEnv(installationName: 'sq1') { 
+          bat './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+        }
+      }
+    }
 
 
     stage('Deploy') {
