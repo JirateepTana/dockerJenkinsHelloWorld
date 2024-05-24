@@ -40,6 +40,8 @@ pipeline {
         timeout(time: 2, unit: 'MINUTES') {
           waitForQualityGate abortPipeline: true
         }
+      }
+ }
     stage('Deploy') {
       steps {
         // Perform deployment steps here, e.g., deploying to a hosting environment
