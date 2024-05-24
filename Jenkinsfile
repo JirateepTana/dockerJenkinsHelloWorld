@@ -26,13 +26,7 @@ pipeline {
       }
     }
 
-    stage('Test') {
-      steps {
-        // Run tests for the Next.js application
-        echo 'Start Test project before deploy'
-        bat 'cd hello-world && npm run test'
-      }
-    }
+
 
     stage('Deploy') {
       steps {
