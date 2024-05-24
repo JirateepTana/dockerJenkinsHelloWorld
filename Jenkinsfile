@@ -17,6 +17,8 @@ pipeline {
         // Install Node.js dependencies (sh for linux, bat for windows)
         echo 'Start Install dependencies'
         bat 'cd hello-world && npm install'
+        bat 'cd hello-world && npm install sonar-scanner'
+        
       }
     }
 
@@ -30,7 +32,7 @@ pipeline {
     stage('Scan') {
       steps {
         withSonarQubeEnv('sq1') {
-          bat 'sonar-scanner -Dsonar.projectKey=YourProjectKey -Dsonar.sources=. -Dsonar.host.url=http://your-sonarqube-server-url -Dsonar.login=skad@#asaskd'
+         bat 'npm run sonar'
         }
       }
     }
