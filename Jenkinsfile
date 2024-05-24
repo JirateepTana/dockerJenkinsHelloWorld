@@ -29,8 +29,8 @@ pipeline {
     }
     stage('Scan') {
       steps {
-        withSonarQubeEnv(installationName: 'sq1') { 
-          bat '.\\mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+        withSonarQubeEnv('sq1') {
+          bat 'sonar-scanner -Dsonar.projectKey=YourProjectKey -Dsonar.sources=. -Dsonar.host.url=http://your-sonarqube-server-url -Dsonar.login=skad@#asaskd'
         }
       }
     }
