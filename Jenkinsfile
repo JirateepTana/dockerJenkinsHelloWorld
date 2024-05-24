@@ -34,8 +34,6 @@ pipeline {
       }
     }
 
-    stage('Code Check')
-
     stage('Deploy') {
       steps {
         // Perform deployment steps here, e.g., deploying to a hosting environment
