@@ -17,7 +17,6 @@ pipeline {
         // Install Node.js dependencies (sh for linux, bat for windows)
         echo 'Start Install dependencies'
         bat 'cd hello-world && npm install'
-        bat 'cd hello-world && npm install sonar-scanner'
         
       }
     }
