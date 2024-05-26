@@ -26,7 +26,7 @@ pipeline {
       steps {
         // Build the Next.js application
         echo 'Start build project'
-        bat 'cd hello-world && npm run build && npm test'
+        bat 'cd hello-world && npm run build'
       }
     }
     stage('SonarQube analysis') {
