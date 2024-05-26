@@ -31,7 +31,7 @@ pipeline {
     }
     stage('SonarQube analysis') {
       steps {
-        withSonarQubeEnv('Sonar Scanner') {
+        withSonarQubeEnv('sq1') {
          bat 'cd hello-world && npm install -g sonar-scanner'
         }
       }
