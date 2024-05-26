@@ -26,13 +26,13 @@ pipeline {
       steps {
         // Build the Next.js application
         echo 'Start build project'
-        bat 'cd hello-world && npm run build'
+        bat 'cd hello-world && npm run build && npm test'
       }
     }
-    stage('Scan') {
+    stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv('sq1') {
-         bat 'npm run sonar'
+         bat 'cd hello-world && npm install -g sonar-scanner'
         }
       }
     }
@@ -44,13 +44,6 @@ pipeline {
         }
       }
  }
-    stage('Deploy') {
-      steps {
-        // Perform deployment steps here, e.g., deploying to a hosting environment
-        // You can use a plugin or custom scripts for deployment
-        // Example: sh 'npm run deploy'
-        echo 'Start Deploy Application!!!'
-      }
-    }
+
   }
 }
