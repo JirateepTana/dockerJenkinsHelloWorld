@@ -45,6 +45,8 @@ stage('SonarQube analysis') {
 
 
 
+
+
  stage("Quality Gate") {
       steps {
         timeout(time: 5, unit: 'MINUTES') {
@@ -52,6 +54,15 @@ stage('SonarQube analysis') {
         }
       }
  }
+
+    stage('Deploy') {
+      steps {
+        // Deploy the Next.js application
+        echo 'Start deploy project'
+        bat 'cd hello-world && npm run start'
+        
+      }
+    }
 
   }
 }
