@@ -32,7 +32,7 @@ pipeline {
 stage('SonarQube analysis') {
     steps {
         script {
-            def scannerHome = tool 'sonarscanner' // Assuming SonarQube Scanner is installed as a Jenkins tool
+            def scannerHome = tool 'sonar-scanner' // Assuming SonarQube Scanner is installed as a Jenkins tool
             // Adjust project directory path if needed
             def projectDir = 'hello-world'
             
