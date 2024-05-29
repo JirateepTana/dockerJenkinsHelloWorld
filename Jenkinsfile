@@ -32,9 +32,9 @@ pipeline {
 stage('SonarQube analysis') {
   steps {
     script {
-      def scannerHome = 'sonar-scanner'
+      def scannerHome = tool 'sonar-scanner'
       def projectDir = 'hello-world'
-      
+      echo scannerHome
       withSonarQubeEnv('sq1') {
     bat "${scannerHome}\\bin\\sonar-scanner.bat -Dsonar.token=squ_ccc0d798e8aec1730c5ab046d6edad7751be72e6"
       }
