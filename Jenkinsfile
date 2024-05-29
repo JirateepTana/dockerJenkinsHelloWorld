@@ -40,13 +40,7 @@ stage('SonarQube analysis') {
 }
 
 
-    stage('Deploy') {
-      steps {
-        // Deploy the application to the server
-        echo 'Start deploy project'
-        bat 'cd hello-world && npm run deploy'
-      }
-    }
+
 
 
 
