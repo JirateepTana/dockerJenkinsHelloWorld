@@ -35,7 +35,7 @@ stage('SonarQube analysis') {
    
       
       withSonarQubeEnv('sq1') {
-    bat 'sonar-scanner -Dsonar.token=squ_ccc0d798e8aec1730c5ab046d6edad7751be72e6'
+    bat 'cd hello-world && sonar-scanner -Dsonar.token=squ_ccc0d798e8aec1730c5ab046d6edad7751be72e6'
       }
     }
   }
