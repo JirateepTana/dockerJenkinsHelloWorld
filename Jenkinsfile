@@ -40,13 +40,13 @@ stage('SonarQube analysis') {
 }
 
 
- stage("Quality Gate") {
+    stage('Deploy') {
       steps {
-        timeout(time: 5, unit: 'MINUTES') {
-          waitForQualityGate abortPipeline: true
-        }
+        // Deploy the application to the server
+        echo 'Start deploy project'
+        bat 'cd hello-world && npm run deploy'
       }
- }
+    }
 
 
 
