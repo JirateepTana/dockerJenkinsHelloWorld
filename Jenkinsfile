@@ -36,15 +36,11 @@ stage('SonarQube analysis') {
       def projectDir = 'hello-world'
       
       withSonarQubeEnv('sq1') {
-    bat "${scannerHome}\\bin\\sonar-scanner.bat -Dsonar.tests=${projectDir}/__tests__ -Dsonar.lang.patterns.js=**/*.js,**/*.jsx -Dsonar.lang.patterns.ts=**/*.ts,**/*.tsx,**/*.cts,**/*.mts -Dsonar.token=squ_3fb3ed57b73732602c4dc0aaa15e8bdbac498333"
+    bat "${scannerHome}\\bin\\sonar-scanner.bat -Dsonar.tests=${projectDir}/__tests__ -Dsonar.lang.patterns.js=**/*.js,**/*.jsx -Dsonar.lang.patterns.ts=**/*.ts,**/*.tsx,**/*.cts,**/*.mts -Dsonar.token=squ_aa4186b4b21f2fb546120516f69341b7d5c3996d"
       }
     }
   }
 }
-
-
-
-
 
 
  stage("Quality Gate") {
@@ -55,14 +51,7 @@ stage('SonarQube analysis') {
       }
  }
 
-    stage('Deploy') {
-      steps {
-        // Deploy the Next.js application
-        echo 'Start deploy project'
-        bat 'cd hello-world && npm run start'
-        
-      }
-    }
+
 
   }
 }
