@@ -36,8 +36,8 @@ stage('SonarQube analysis') {
             // Adjust project directory path if needed
             def projectDir = 'hello-world'
             
-            def sonarToken = credentialsId('squ_bd90399c7c384fe55953f186872af8285fdd776e') // Assuming credential ID is 'sonarcube_token'
-                        withCredentials([username: '$class', password: '$class', file: sonarToken]) {
+             // Assuming credential ID is 'sonarcube_token'
+                        withCredentials([username: '$class', password: '$class', file: 'squ_bd90399c7c384fe55953f186872af8285fdd776e']) {
                             withSonarQubeEnv('sq1') { // Assuming sq1 is your configuration name
                     sh """
                         ${scannerHome}/bin/sonar-scanner -X \
