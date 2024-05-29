@@ -40,7 +40,7 @@ stage('SonarQube analysis') {
            
             withSonarQubeEnv('sq1') { // Assuming sq1 is your configuration name
                     bat """
-                        ${scannerHome}/bin/sonar-scanner \
+                        ${scannerHome}/bin/sonar-scanner -X \
                         -Dsonar.token='squ_bd90399c7c384fe55953f186872af8285fdd776e' \
                         -Dsonar.sources=${projectDir}
                     """
