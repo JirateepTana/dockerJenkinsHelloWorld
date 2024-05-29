@@ -36,7 +36,7 @@ stage('SonarQube analysis') {
       def projectDir = 'hello-world'
       
       withSonarQubeEnv('sq1') {
-        bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.token=squ_bd90399c7c384fe55953f186872af8285fdd776e"
+        bat "${scannerHome} -Dsonar.token=squ_bd90399c7c384fe55953f186872af8285fdd776e"
       }
     }
   }
