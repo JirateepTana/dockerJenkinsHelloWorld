@@ -39,7 +39,7 @@ stage('SonarQube analysis') {
             withSonarQubeEnv('sq1') {
                 // Use sh for broader OS compatibility
                 bat "${scannerHome}/bin/sonar-scanner \
-                    -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609 \
+                    -Dsonar.projectKey=squ_bd90399c7c384fe55953f186872af8285fdd776e\
                     -Dsonar.sources=${projectDir}"
             }
         }
