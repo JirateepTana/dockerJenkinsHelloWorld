@@ -29,14 +29,23 @@ pipeline {
         
       }
     }
-    stage('SonarQube analysis') {
-      steps {
-        withSonarQubeEnv('sq1') {
-          
-          bat 'cd hello-world && sonar-scanner -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609'
+stage('SonarQube analysis') {
+    steps {
+        script {
+            def scannerHome = tool 'sonarscanner' // Assuming SonarQube Scanner is installed as a Jenkins tool
+            // Adjust project directory path if needed
+            def projectDir = 'hello-world'
+            
+            withSonarQubeEnv('sq1') {
+                // Use sh for broader OS compatibility
+                bat "${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609 \
+                    -Dsonar.sources=${projectDir}"
+            }
         }
-      }
     }
+}
+
 
  stage("Quality Gate") {
       steps {
