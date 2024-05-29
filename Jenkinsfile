@@ -25,13 +25,13 @@ pipeline {
       steps {
         // Build the Next.js application
         echo 'Start build project'
-        bat 'cd hello-world && npm run build'
+        bat 'cd hello-world && npm run build && npm install -g sonar-scanner'
       }
     }
     stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv('sq1') {
-          bat 'cd hello-world && npm install -g sonar-scanner'
+          
           bat 'cd hello-world && sonar-scanner -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609'
         }
       }
