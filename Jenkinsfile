@@ -48,6 +48,8 @@ stage('SonarQube analysis') {
         }
     }
 }
+}
+
 
 
  stage("Quality Gate") {
