@@ -31,7 +31,7 @@ pipeline {
     stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv('sq1') {
-          bat '"${scannerHome}/bin/sonar-scanner.bat" -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609'
+          bat 'sonar-scanner -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609'
         }
       }
     }
