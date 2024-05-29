@@ -36,7 +36,9 @@ stage('SonarQube analysis') {
       def projectDir = 'hello-world'
       
       withSonarQubeEnv('sq1') {
-    bat "${scannerHome}\\bin\\sonar-scanner.bat -Dsonar.projectKey=squ_3fb3ed57b73732602c4dc0aaa15e8bdbac498333 -Dsonar.tests=${projectDir}/tests -Dsonar.lang.patterns.js=**/*.js,**/*.jsx -Dsonar.lang.patterns.ts=**/*.ts,**/*.tsx,**/*.cts,**/*.mts -Dsonar.token=squ_3fb3ed57b73732602c4dc0aaa15e8bdbac498333"
+    bat "${scannerHome}\\bin\\sonar-scanner.bat -Dsonar.tests=${projectDir}/tests -Dsonar.lang.patterns.js=**/*.js,**/*.jsx -Dsonar.lang.patterns.ts=**/*.ts,**/*.tsx,**/*.cts,**/*.mts 
+    -Dsonar.projectKey=squ_3fb3ed57b73732602c4dc0aaa15e8bdbac498333
+    -Dsonar.token=squ_3fb3ed57b73732602c4dc0aaa15e8bdbac498333"
       }
     }
   }
