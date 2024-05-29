@@ -33,7 +33,7 @@ stage('SonarQube analysis') {
   steps {
     script {
       withSonarQubeEnv('sq1') {
-        bat 'sonar-scanner -Dsonar.projectKey=squ_ccc0d798e8aec1730c5ab046d6edad7751be72e6'
+        bat 'C:\\tools\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat -Dsonar.projectKey=squ_ccc0d798e8aec1730c5ab046d6edad7751be72e6'
       }
     }
   }
