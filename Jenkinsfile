@@ -31,7 +31,7 @@ pipeline {
     stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv('sq1') {
-          bat 'cd hello-world && sonar-scanner -Dsonar.projectKey=squ_667120effab6ebee115aed812a3da95aee6c9927'
+          bat 'cd hello-world && sonar-scanner -Dsonar.projectKey=squ_90d802fe8575b2d39603660d7d05d9c483009609'
         }
       }
     }
