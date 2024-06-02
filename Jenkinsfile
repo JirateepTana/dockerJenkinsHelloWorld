@@ -35,8 +35,10 @@ pipeline {
 stage('SonarQube analysis') {
   steps {
     script {
-      withSonarQubeEnv('sq1') {
-        sh 'cd hello-world && $SONAR_SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=squ_3dd24cdb24a9c28f3089a10f954d94d6426089fe'
+      withEnv(['SONAR_SCANNER_HOME=/opt/sonar-scanner-5.0.1.3006-linux']) {
+        withSonarQubeEnv('sq1') {
+          sh 'cd hello-world && $SONAR_SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=squ_3dd24cdb24a9c28f3089a10f954d94d6426089fe'
+        }
       }
     }
   }
