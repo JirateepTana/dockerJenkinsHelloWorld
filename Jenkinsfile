@@ -1,18 +1,9 @@
 pipeline {
 
-
-
-
-
-
   agent any
   options {//storage cleaner
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
-
-
-
-
 
   
   stages {
@@ -45,7 +36,7 @@ stage('SonarQube analysis') {
   steps {
     script {
       withSonarQubeEnv('sq1') {
-        sh 'cd hello-world && C:\\tools\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat -Dsonar.projectKey=squ_ccc0d798e8aec1730c5ab046d6edad7751be72e6'
+        sh 'cd hello-world && sonar-scanner -Dsonar.projectKey=squ_3dd24cdb24a9c28f3089a10f954d94d6426089fe'
       }
     }
   }
