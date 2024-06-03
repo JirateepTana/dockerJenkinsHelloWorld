@@ -22,7 +22,7 @@ pipeline {
                         dir("terraform")
                         {
                           echo 'Checkout Method.....'
-                            git "https://github.com/JirateepTana/dockerJenkinsHelloWorld.git"
+                            git "https://github.com/JirateepTana/dockerJenkinsHelloWorld.git", branch: 'main'
                         }
                     }
       }
