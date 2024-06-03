@@ -17,9 +17,14 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        echo 'Checkout Method.....'
-        // Checkout your GitHub repository
-       git url: 'https://github.com/JirateepTana/dockerJenkinsHelloWorld.git' , branch: 'main'
+
+                         script{
+                        dir("terraform")
+                        {
+                          echo 'Checkout Method.....'
+                            git "https://github.com/JirateepTana/dockerJenkinsHelloWorld.git"
+                        }
+                    }
       }
     }
 
