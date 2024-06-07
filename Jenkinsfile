@@ -11,9 +11,8 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-
-                         script{
-                        dir("terraform")
+        script{
+          dir("terraform")
                         {
                           echo 'Checkout Method.....'
                             git url: 'https://github.com/JirateepTana/dockerJenkinsHelloWorld.git' , branch: 'main'
@@ -25,7 +24,7 @@ pipeline {
 stage('Pull Latest Changes') {
   steps {
     echo 'Pulling latest changes from the repository'
-    sh 'git pull'
+    sh 'git pull origin main'
   }
 }
 
