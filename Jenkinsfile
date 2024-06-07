@@ -58,7 +58,7 @@ stage('Pull Latest Changes') {
     stage('Build Docker Image') {
       steps {
         script {
-          docker.build("jirateep/dockerjenkinshelloworld:1.0", "hello-world")
+          docker.build("jirateep/dockerjenkinshelloworld:1.0", ".")
         }
       }
     }
