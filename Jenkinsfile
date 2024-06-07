@@ -42,6 +42,14 @@ pipeline {
       }
     }
 
+    stage('Remove Old Docker Container') {
+      steps {
+        script {
+          sh 'docker rm -f my-container || true'
+        }
+      }
+    }
+
     stage('Build Docker Image') {
       steps {
         script {
@@ -53,7 +61,7 @@ pipeline {
     stage('Run Docker Container') {
       steps {
         script {
-          docker.image("jirateep/dockerjenkinshelloworld:1.0").run("-p 3000:3000")
+          docker.image("jirateep/dockerjenkinshelloworld:1.0").run("--name my-container -p 3000:3000")
         }
       }
     }
