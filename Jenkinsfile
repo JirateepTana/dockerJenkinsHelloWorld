@@ -22,6 +22,14 @@ pipeline {
       }
     }
 
+stage('Pull Latest Changes') {
+  steps {
+    echo 'Pulling latest changes from the repository'
+    sh 'git pull'
+  }
+}
+
+
     stage('Install dependencies') {
       steps {
         // Install Node.js dependencies (sh for linux, bat for windows)
@@ -51,7 +59,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         script {
-          docker.build("jirateep/dockerjenkinshelloworld:1.0", "./hello-world")
+          docker.build("jirateep/dockerjenkinshelloworld:1.0", "hello-world")
         }
       }
     }
