@@ -41,6 +41,23 @@ pipeline {
         
       }
     }
+
+    stage('Build Docker Image') {
+      steps {
+        script {
+          docker.build("jirateep/dockerjenkinshelloworld:1.0", "./hello-world")
+        }
+      }
+    }
+
+    stage('Run Docker Container') {
+      steps {
+        script {
+          docker.image("jirateep/dockerjenkinshelloworld:1.0").run("-p 3000:3000")
+        }
+      }
+    }
+
 stage('SonarQube analysis') {
   steps {
     script {
